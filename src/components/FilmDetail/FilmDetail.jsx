@@ -1,4 +1,5 @@
 import React from 'react';
+import './FilmDetail.css';
 
 export default function FilmDetail({ title, director, image, original_title, description }) {
   return (
