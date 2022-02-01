@@ -1,11 +1,11 @@
 # Plan for build from scratch
 
-## Team List Page ("/)
+## Ghibli List Page ("/")
 
 - [ ] <Home />
 - [ ] List of items shown on page load
 
-## Team Detail Page (/team/:teamId)
+## Ghibli Detail Page (/ghibli/:ghibliId)
 
 - [ ] <TeamDetail />
 - [ ] useLocation - grabs query parameters from URL
@@ -16,3 +16,5 @@
 ## App.js
 
 - [ ] Switch Component inside of Router
+  - [ ] rendering "/" to Home
+  - [ ] rendering "/Ghibli/:ghibliId"
