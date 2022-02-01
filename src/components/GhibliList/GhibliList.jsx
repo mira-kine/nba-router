@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './GhibliList.css';
 
 export default function GhibliList({ films }) {
   return (
     <div className="img-container">
-      {films.map((film) => (
-        <div key={film.id} className="img-card">
-          <span>{film.title}</span>
-          <img src={film.image} alt="list of films from ghibli" />
+      {films.map(({ id, image, title }) => (
+        <div key={id} className="img-card">
+          <span>{title}</span>
+          <Link to={`/films/${id}`}>
+            <img src={image} alt="list of films from ghibli" />
+          </Link>
         </div>
       ))}
     </div>

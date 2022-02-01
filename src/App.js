@@ -1,6 +1,8 @@
 import './App.css';
-import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Link, Switch } from 'react-router-dom';
 import Home from './views/Home/Home';
+import Welcome from './views/Welcome/Welcome';
+import GhibliDetail from './views/GhibliDetail/GhibliDetail';
 
 function App() {
   return (
@@ -8,11 +10,24 @@ function App() {
       <header className="Ghibli-Header">
         <h1>Ghibli Films</h1>
         <ul>
-          <Link to="/">Home</Link>
+          <li>
+            <Link to="/">Welcome</Link>
+          </li>
+          <li>
+            <Link to="/films">Movie List</Link>
+          </li>
         </ul>
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Welcome />
+          </Route>
+          <Route exact path="/films">
+            <Home />
+          </Route>
+          <Route path="/films/:filmId">
+            <GhibliDetail />
+          </Route>
+        </Switch>
       </header>
     </Router>
   );
