@@ -10,15 +10,21 @@ export default function GhibliDetail() {
   useEffect(() => {
     async function fetchDetails() {
       const filmDetails = await fetchFilmDetails(filmId);
-      console.log('detail', detail);
       setDetail(filmDetails);
     }
     fetchDetails();
   }, []);
 
+  const { title, director, producer, original_title, description } = detail;
   return (
     <div>
-      <FilmDetail />
+      <FilmDetail
+        title={title}
+        director={director}
+        producer={producer}
+        original_title={original_title}
+        description={description}
+      />
     </div>
   );
 }
