@@ -18,6 +18,7 @@ export default function Home() {
   if (loading) {
     return <h2>Loading</h2>;
   }
+
   return (
     <>
       <GhibliList films={films} />

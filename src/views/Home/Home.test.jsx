@@ -7,14 +7,14 @@ import { MemoryRouter } from 'react-router-dom';
 
 const server = setupServer(
   rest.get(`https://ghibliapi.herokuapp.com/films`, (req, res, ctx) => {
-    return res(ctx.json([mockData]));
+    return res(ctx.json(mockData));
   })
 );
 
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.skip('should render list of films', async () => {
+test.only('should render list of films', async () => {
   render(
     <MemoryRouter>
       <Home />
@@ -22,11 +22,9 @@ test.skip('should render list of films', async () => {
   );
   // render header Ghibli Films
   const heading = screen.getByRole('heading');
-
-  // rendering films awaiting findAllByRole list item, length 22
-  const films = await screen.findByRole('list');
-
-  //   expect(films.length).toEqual(22);
-  expect(films).toBeInTheDocument();
   expect(heading).toBeInTheDocument();
+  // rendering films awaiting findAllByRole list item, length 22
+  const films = await screen.findAllByRole('listitem');
+
+  expect(films.length).toEqual(22);
 });
