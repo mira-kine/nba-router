@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import { MemoryRouter, Route } from 'react-router-dom';
 import GhibliDetail from './GhibliDetail';
 
 const castle = {
@@ -41,21 +42,22 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.skip('should render Details', async () => {
-  render(<GhibliDetail />);
-  const heading = await screen.findByRole('heading');
-  //   const img = screen.getByRole('img', {
-  //     name: /movie image/i,
-  //   });
-  //   const director = screen.getByRole('heading', {
-  //     name: /hayao miyazaki/i,
-  //   });
-  //   const description = screen.getByText(
-  //     "The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world."
-  //   );
+test('should render Details', async () => {
+  render(
+    <MemoryRouter initialEntries={['/films/2baf70d1-42bb-4437-b551-e5fed5a87abe']}>
+      <Route path="/films/:filmId" component={GhibliDetail} />
+    </MemoryRouter>
+  );
 
-  expect(heading).toBeInTheDocument();
-  //   expect(img).toBeInTheDocument();
-  //   expect(director).toBeInTheDocument();
-  //   expect(description).toBeInTheDocument();
+  expect(screen.getByText(/loading/i)).toBeInTheDocument();
+  const img = await screen.findByRole('img');
+
+  const director = screen.getByText(/hayao miyazaki/i);
+  const description = screen.getByText(
+    "The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world."
+  );
+
+  expect(img).toBeInTheDocument();
+  expect(director).toBeInTheDocument();
+  expect(description).toBeInTheDocument();
 });

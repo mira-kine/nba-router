@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './GhibliList.css';
 
 export default function GhibliList({ films }) {
-  // console.log('films', films);
   return (
     <div className="img-container">
       <ul>

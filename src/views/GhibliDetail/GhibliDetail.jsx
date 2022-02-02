@@ -24,6 +24,7 @@ export default function GhibliDetail() {
   }
 
   const { title, director, producer, original_title, image, description } = detail;
+
   const handleClick = () => {
     history.push(`/films`);
   };

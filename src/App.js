@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/films">
             <Home />
           </Route>
-          <Route path="films/:filmId">
+          <Route path="/films/:filmId">
             <GhibliDetail />
           </Route>
         </Switch>
