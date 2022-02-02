@@ -14,7 +14,7 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.only('should render list of films', async () => {
+test.skip('should render list of films', async () => {
   render(
     <MemoryRouter>
       <Home />
@@ -24,7 +24,7 @@ test.only('should render list of films', async () => {
   const heading = screen.getByRole('heading');
 
   // rendering films awaiting findAllByRole list item, length 22
-  const films = await screen.findAllByRole('listitem');
+  const films = await screen.findByRole('list');
 
   //   expect(films.length).toEqual(22);
   expect(films).toBeInTheDocument();

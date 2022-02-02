@@ -9,7 +9,7 @@ export default function GhibliList({ films }) {
         {films.map(({ id, image, title }) => (
           <div key={id} className="img-card">
             <li>{title}</li>
-            <Link to={`/films/${id}`}>
+            <Link key={id} to={`/${id}`}>
               <img src={image} alt="list of films from ghibli" />
             </Link>
           </div>
