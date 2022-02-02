@@ -25,6 +25,5 @@ test.only('should render list of films', async () => {
   expect(heading).toBeInTheDocument();
   // rendering films awaiting findAllByRole list item, length 22
   const films = await screen.findAllByRole('listitem');
-
   expect(films.length).toEqual(22);
 });
