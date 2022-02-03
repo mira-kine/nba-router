@@ -13,7 +13,9 @@
 }
 
 img {
-  max-width: 20vw;
+  min-width: 20vw;
+  width: 100px;
+  min-width: 200px;
   height: 30vh;
 }
 
@@ -21,4 +23,9 @@ img:hover {
   max-width: 22vw;
   height: 32vh;
   border: 4px lightblue dotted;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
 }

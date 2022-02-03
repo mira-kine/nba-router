@@ -5,7 +5,7 @@ import './GhibliList.css';
 export default function GhibliList({ films }) {
   return (
     <div className="img-container">
-      <ul>
+      <ul className="list">
         {films.map((item) => {
           return (
             <div key={item.id} className="img-card">
