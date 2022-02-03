@@ -6,30 +6,32 @@ import GhibliDetail from './views/GhibliDetail/GhibliDetail';
 
 function App() {
   return (
-    <Router>
-      <header className="Ghibli-Header">
-        <h1>Ghibli Films</h1>
-        <ul>
-          <li>
-            <Link to="/">Welcome</Link>
-          </li>
-          <li>
-            <Link to="/films">Movie List</Link>
-          </li>
-        </ul>
-        <Switch>
-          <Route exact path="/">
-            <Welcome />
-          </Route>
-          <Route exact path="/films">
-            <Home />
-          </Route>
-          <Route path="/films/:filmId">
-            <GhibliDetail />
-          </Route>
-        </Switch>
-      </header>
-    </Router>
+    <div style={{ backgroundImage: `url()` }}>
+      <Router>
+        <header className="Ghibli-Header">
+          <h1>Ghibli Films</h1>
+          <ul>
+            <li>
+              <Link to="/">Welcome</Link>
+            </li>
+            <li>
+              <Link to="/films">Movie List</Link>
+            </li>
+          </ul>
+          <Switch>
+            <Route exact path="/">
+              <Welcome />
+            </Route>
+            <Route exact path="/films">
+              <Home />
+            </Route>
+            <Route path="/films/:filmId">
+              <GhibliDetail />
+            </Route>
+          </Switch>
+        </header>
+      </Router>
+    </div>
   );
 }
 
