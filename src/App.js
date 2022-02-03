@@ -3,10 +3,10 @@ import { Route, BrowserRouter as Router, Link, Switch } from 'react-router-dom';
 import Home from './views/Home/Home';
 import Welcome from './views/Welcome/Welcome';
 import GhibliDetail from './views/GhibliDetail/GhibliDetail';
-
+import background from './assets/background.jpg';
 function App() {
   return (
-    <div style={{ backgroundImage: `url()` }}>
+    <div className="bck" style={{ backgroundImage: `url(${background})` }}>
       <Router>
         <header className="Ghibli-Header">
           <h1>Ghibli Films</h1>
